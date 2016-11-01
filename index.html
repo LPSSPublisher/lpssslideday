@@ -1,0 +1,33 @@
+<!--Code by Zonggao Li, images by Oscar Nalecz-->
+<html>
+    <head>
+        <title>LPSS Day Slide</title>
+        <style>
+            html, body {
+                margin: 0;
+                overflow: hidden;
+            }
+            img#dayImg {
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+        </style>
+        <script>
+            var dayImg;
+            var curImg = "";
+            function display() {
+                var newImg = ((new Date()).getDate() % 2 == 0) ? "Day 2.jpg" : "Day 1.jpg";
+                if (curImg != newImg) dayImg.src = curImg = newImg;
+            }
+            function load() {
+                dayImg = document.getElementById("dayImg");
+                display();
+                setInterval(display, 1000);
+            }
+        </script>
+    </head>
+    <body onload="load()">
+        <img id="dayImg" width="475" height="232">
+    </body>
+</html>
